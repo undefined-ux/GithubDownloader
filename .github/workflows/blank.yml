@@ -37,5 +37,5 @@ jobs:
         with:
           actions: 'close-issues'
           token: ${{ secrets.GITHUB_TOKEN }}
-          body: "Download Finished"
+          body: "Download Finished.\nhttps://github.com/undefined-ux/GithubDownloader/actions/runs/${{github.run_id}}"
           body-includes: ${{ github.event.issue.body }}

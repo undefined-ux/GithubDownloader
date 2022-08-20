@@ -26,14 +26,15 @@ jobs:
       - name: Download
         run: aria2c "${{ github.event.issue.body }}"
       - name: upload
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v3
         with:
           name: File
           path: ${{ github.workspace }}
+          retention-days: 5
       - name: close-issues
         uses: actions-cool/issues-helper@v3
         with:
           actions: 'close-issues'
           token: ${{ secrets.GITHUB_TOKEN }}
-          body: "Download Finished.\nhttps://github.com/undefined-ux/GithubDownloader/actions/runs/${{github.run_id}}"
+          body: "Download Finished,File will be deleted after 5 days.\nhttps://github.com/undefined-ux/GithubDownloader/actions/runs/${{github.run_id}}"
           body-includes: ${{ github.event.issue.body }}

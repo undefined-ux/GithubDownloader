@@ -23,5 +23,19 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Run a multi-line script
-        run: echo ${{ github.event.issue.body }}
+      - name: Download
+        run: |
+          echo ${{ toJSON(github) }}
+          aria2c ${{ github.event.issue.body }}
+      - name: upload
+        uses: actions/upload-artifact@v1
+        with:
+          name: File
+          path: ${{ github.workspace }}
+      - name: close-issues
+        uses: actions-cool/issues-helper@v3
+        with:
+          actions: 'close-issues'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          body: "Download Finished"
+          body-includes: ${{ github.event.issue.body }}

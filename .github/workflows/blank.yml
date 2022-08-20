@@ -24,9 +24,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Download
-        run: |
-          echo ${{ toJSON(github) }}
-          aria2c ${{ github.event.issue.body }}
+        run: aria2c "${{ github.event.issue.body }}"
       - name: upload
         uses: actions/upload-artifact@v1
         with:

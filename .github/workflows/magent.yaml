@@ -30,7 +30,7 @@ jobs:
         git config --global http.core.compression 0
         git config --global user.name 'download-action[bot]'
         git config --global user.email 'download-action-bot@example.com'
-        git remote set-url origin https://${INPUT_ACTOR}:${GITHUB_TOKEN}@github.com/${INPUT_REPO}.git
+        git remote set-url origin https://${actor}:${GITHUB_TOKEN}@github.com/${repo}.git
         git pull --rebase
         torrent download a.torrent
         for item in `ls`

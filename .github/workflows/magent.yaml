@@ -21,7 +21,7 @@ jobs:
     - name: download
       uses: iamazy/download-action@main
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.TOKEN }}
       with:
         url: 'magnet:?xt=urn:btih:04B0E8B4C42A3B7FBC222CB19681C18AE49C04D3&tr=http%3A%2F%2Fbt3.t-ru.org%2Fann%3Fmagnet&dn=Yamaha%20-%20Vocaloid%204.3.0%20x86%20%2B%20ALL%20Libraries%20%5B25.10.2016%5D'
         actor: ${{ github.actor }}

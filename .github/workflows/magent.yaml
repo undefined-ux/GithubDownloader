@@ -19,7 +19,7 @@ jobs:
     - name: clone repository
       uses: actions/checkout@v2
     - name: download
-      uses: undefined-ux/download-action@main
+      uses: undefined-ux/download-action@spilt-to-fit-max-size
       env:
         GITHUB_TOKEN: ${{ secrets.TOKEN }}
       with:
